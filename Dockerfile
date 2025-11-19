@@ -27,8 +27,8 @@ VOLUME [ "/samba", "/bind-dns", "/ntp_signd" "/user"]
 HEALTHCHECK --interval=60s --timeout=15s --start-period=60s --retries=3  \
             CMD smbclient -L \\localhost -U % -m SMB3
 
-COPY smb.conf /samba/etc/smb.conf 
-COPY smb.conf.d /samba/etc/smb.conf.d
+COPY smb.conf /etc/samba/smb.conf 
+COPY smb.conf.d /etc/samba/smb.conf.d
 COPY docker-entrypoint /samba-ad-dc
 
 ENTRYPOINT ["/samba-ad-dc"]
