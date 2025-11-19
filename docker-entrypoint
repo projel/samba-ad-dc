@@ -71,7 +71,7 @@ function provision_domain() {
         --configfile /tmp/smb.conf \
         --backend-store=${BACKEND_STORE} \
         --targetdir=/samba \
-        --adminpass=${ADMIN_PASSWORD} > /dev/null 2>&1
+        --adminpass=${ADMIN_PASSWORD} 2>&1 | tee /samba/log/provision.log
 }
 
 
